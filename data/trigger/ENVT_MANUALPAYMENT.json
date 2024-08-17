@@ -1,0 +1,24 @@
+{
+	"name": "ENVT_MANUALPAYMENT",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_ADLS_PAR",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/manualfilepayment/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/57c4c5df-a5b0-442e-9e96-3dca662c74a7/resourceGroups/rg_devecom/providers/Microsoft.Storage/storageAccounts/adlsrawdevecom08",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
