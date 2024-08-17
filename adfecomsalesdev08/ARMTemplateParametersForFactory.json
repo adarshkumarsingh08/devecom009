@@ -5,11 +5,17 @@
 		"factoryName": {
 			"value": "adfecomsalesdev08"
 		},
+		"ADLS_SQL_PAR_accountKey": {
+			"value": ""
+		},
 		"LS_SqlServer1_password": {
 			"value": ""
 		},
-		"ADLS_SQL_PAR_accountKey": {
+		"SL_REST_API_accountKey": {
 			"value": ""
+		},
+		"ADLS_SQL_PAR_properties_typeProperties_url": {
+			"value": "https://adlssidevecom08.dfs.core.windows.net/"
 		},
 		"LS_SqlServer1_properties_typeProperties_server": {
 			"value": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
@@ -20,7 +26,10 @@
 		"LS_SqlServer1_properties_typeProperties_userName": {
 			"value": "sa"
 		},
-		"ADLS_SQL_PAR_properties_typeProperties_url": {
+		"LS_REST_PAR_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/pCtpVZ/data"
+		},
+		"SL_REST_API_properties_typeProperties_url": {
 			"value": "https://adlssidevecom08.dfs.core.windows.net/"
 		}
 	}
