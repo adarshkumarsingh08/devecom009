@@ -1,0 +1,24 @@
+{
+	"name": "SCH_REST_API",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_REST_PAR",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-08-17T15:03:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

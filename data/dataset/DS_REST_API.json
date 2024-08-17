@@ -1,0 +1,19 @@
+{
+	"name": "DS_REST_API",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SL_REST_API",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "customer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
