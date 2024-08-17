@@ -1,0 +1,16 @@
+{
+	"name": "LS_REST_PAR",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://retoolapi.dev/pCtpVZ/data",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		},
+		"connectVia": {
+			"referenceName": "IR-Self-hosted",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
