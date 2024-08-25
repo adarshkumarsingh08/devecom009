@@ -1,0 +1,16 @@
+{
+	"name": "SD_SQL_PAR2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_PAR2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "orders"
+		}
+	}
+}

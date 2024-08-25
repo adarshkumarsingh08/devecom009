@@ -1,0 +1,19 @@
+{
+	"name": "DS_SQL_PAR2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SL_SQL_PAR2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "order"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
