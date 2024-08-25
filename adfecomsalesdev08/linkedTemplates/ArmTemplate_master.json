@@ -11,17 +11,41 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLS_SQL_PAR'"
 		},
+		"LS_MANUALPAYMENT_PAR_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_MANUALPAYMENT_PAR'"
+		},
 		"LS_SqlServer1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SqlServer1'"
+		},
+		"SL_MANUALPAYMENT_PAR_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'SL_MANUALPAYMENT_PAR'"
 		},
 		"SL_REST_API_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'SL_REST_API'"
 		},
+		"LS_SQL_PAR2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_PAR2'"
+		},
+		"SL_SQL_PAR2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'SL_SQL_PAR2'"
+		},
 		"ADLS_SQL_PAR_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlssidevecom08.dfs.core.windows.net/"
+		},
+		"LS_MANUALPAYMENT_PAR_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsrawdevecom08.dfs.core.windows.net/"
+		},
+		"LS_REST_PAR_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/pCtpVZ/data"
 		},
 		"LS_SqlServer1_properties_typeProperties_server": {
 			"type": "string",
@@ -35,11 +59,31 @@
 			"type": "string",
 			"defaultValue": "sa"
 		},
-		"LS_REST_PAR_properties_typeProperties_url": {
+		"SL_MANUALPAYMENT_PAR_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://retoolapi.dev/pCtpVZ/data"
+			"defaultValue": "https://adlssidevecom08.dfs.core.windows.net/"
 		},
 		"SL_REST_API_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlssidevecom08.dfs.core.windows.net/"
+		},
+		"ENVT_MANUALPAYMENT_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/57c4c5df-a5b0-442e-9e96-3dca662c74a7/resourceGroups/rg_devecom/providers/Microsoft.Storage/storageAccounts/adlsrawdevecom08"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "salesecom"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"SL_SQL_PAR2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlssidevecom08.dfs.core.windows.net/"
 		},
@@ -73,17 +117,41 @@
 					"ADLS_SQL_PAR_accountKey": {
 						"value": "[parameters('ADLS_SQL_PAR_accountKey')]"
 					},
+					"LS_MANUALPAYMENT_PAR_accountKey": {
+						"value": "[parameters('LS_MANUALPAYMENT_PAR_accountKey')]"
+					},
+					"SL_MANUALPAYMENT_PAR_accountKey": {
+						"value": "[parameters('SL_MANUALPAYMENT_PAR_accountKey')]"
+					},
 					"SL_REST_API_accountKey": {
 						"value": "[parameters('SL_REST_API_accountKey')]"
+					},
+					"SL_SQL_PAR2_accountKey": {
+						"value": "[parameters('SL_SQL_PAR2_accountKey')]"
 					},
 					"LS_SqlServer1_password": {
 						"value": "[parameters('LS_SqlServer1_password')]"
 					},
+					"LS_SQL_PAR2_password": {
+						"value": "[parameters('LS_SQL_PAR2_password')]"
+					},
 					"ADLS_SQL_PAR_properties_typeProperties_url": {
 						"value": "[parameters('ADLS_SQL_PAR_properties_typeProperties_url')]"
 					},
+					"LS_MANUALPAYMENT_PAR_properties_typeProperties_url": {
+						"value": "[parameters('LS_MANUALPAYMENT_PAR_properties_typeProperties_url')]"
+					},
+					"SL_MANUALPAYMENT_PAR_properties_typeProperties_url": {
+						"value": "[parameters('SL_MANUALPAYMENT_PAR_properties_typeProperties_url')]"
+					},
 					"SL_REST_API_properties_typeProperties_url": {
 						"value": "[parameters('SL_REST_API_properties_typeProperties_url')]"
+					},
+					"SL_SQL_PAR2_properties_typeProperties_url": {
+						"value": "[parameters('SL_SQL_PAR2_properties_typeProperties_url')]"
+					},
+					"LS_REST_PAR_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST_PAR_properties_typeProperties_url')]"
 					},
 					"LS_SqlServer1_properties_typeProperties_server": {
 						"value": "[parameters('LS_SqlServer1_properties_typeProperties_server')]"
@@ -94,12 +162,41 @@
 					"LS_SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SqlServer1_properties_typeProperties_userName')]"
 					},
-					"LS_REST_PAR_properties_typeProperties_url": {
-						"value": "[parameters('LS_REST_PAR_properties_typeProperties_url')]"
+					"LS_SQL_PAR2_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_PAR2_properties_typeProperties_server')]"
+					},
+					"LS_SQL_PAR2_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_PAR2_properties_typeProperties_database')]"
+					},
+					"LS_SQL_PAR2_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_PAR2_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adfecomsalesdev08_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ENVT_MANUALPAYMENT_properties_typeProperties_scope": {
+						"value": "[parameters('ENVT_MANUALPAYMENT_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfecomsalesdev08_ArmTemplate_0')]"
+			]
 		}
 	]
 }
