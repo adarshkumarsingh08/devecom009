@@ -353,12 +353,12 @@
 					"authenticationType": "Anonymous"
 				},
 				"connectVia": {
-					"referenceName": "IR-Self-hosted",
+					"referenceName": "IR-self-hosted-new",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IR-Self-hosted')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/IR-self-hosted-new')]"
 			]
 		},
 		{
