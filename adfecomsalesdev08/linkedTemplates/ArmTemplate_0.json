@@ -27,13 +27,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'SL_SQL_PAR2'"
 		},
-		"LS_SqlServer1_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_SqlServer1'"
-		},
 		"LS_SQL_PAR2_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_PAR2'"
+		},
+		"LS_SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SqlServer1'"
 		},
 		"ADLS_SQL_PAR_properties_typeProperties_url": {
 			"type": "string",
@@ -59,18 +59,6 @@
 			"type": "string",
 			"defaultValue": "https://retoolapi.dev/pCtpVZ/data"
 		},
-		"LS_SqlServer1_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
-		},
-		"LS_SqlServer1_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "salesecom"
-		},
-		"LS_SqlServer1_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "sa"
-		},
 		"LS_SQL_PAR2_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
@@ -80,6 +68,18 @@
 			"defaultValue": "salesecom"
 		},
 		"LS_SQL_PAR2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
+		},
+		"LS_SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "salesecom"
+		},
+		"LS_SqlServer1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sa"
 		}
@@ -157,6 +157,23 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SL_SQL_PAR2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('SL_SQL_PAR2_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('SL_SQL_PAR2_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/IR-Self-hosted')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -173,23 +190,6 @@
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SL_SQL_PAR2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('SL_SQL_PAR2_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('SL_SQL_PAR2_accountKey')]"
-					}
-				}
 			},
 			"dependsOn": []
 		},
@@ -267,6 +267,31 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DS_SQL_PAR2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SL_SQL_PAR2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "orders",
+						"fileSystem": "output"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SL_SQL_PAR2')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_MANUALPAYMENT_PAR')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -337,34 +362,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LS_SqlServer1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('LS_SqlServer1_properties_typeProperties_server')]",
-					"database": "[parameters('LS_SqlServer1_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": true,
-					"authenticationType": "SQL",
-					"userName": "[parameters('LS_SqlServer1_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LS_SqlServer1_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IR-Self-hosted",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IR-Self-hosted')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/LS_SQL_PAR2')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -393,27 +390,31 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DS_SQL_PAR2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/LS_SqlServer1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SL_SQL_PAR2",
-					"type": "LinkedServiceReference"
-				},
 				"annotations": [],
-				"type": "Parquet",
+				"type": "SqlServer",
 				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "order"
-					},
-					"compressionCodec": "snappy"
+					"server": "[parameters('LS_SqlServer1_properties_typeProperties_server')]",
+					"database": "[parameters('LS_SqlServer1_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": true,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_SqlServer1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SqlServer1_password')]"
+					}
 				},
-				"schema": []
+				"connectVia": {
+					"referenceName": "IR-Self-hosted",
+					"type": "IntegrationRuntimeReference"
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SL_SQL_PAR2')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/IR-Self-hosted')]"
 			]
 		},
 		{
@@ -510,6 +511,27 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SD_SQL_PAR2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SQL_PAR2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "orders"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_SQL_PAR2')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SD_SqlServerTable1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -557,27 +579,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_SqlServer1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SD_SQL_PAR2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_SQL_PAR2",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "orders"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_SQL_PAR2')]"
 			]
 		},
 		{

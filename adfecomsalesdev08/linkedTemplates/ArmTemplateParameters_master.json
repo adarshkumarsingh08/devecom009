@@ -11,6 +11,9 @@
 		"LS_MANUALPAYMENT_PAR_accountKey": {
 			"value": ""
 		},
+		"LS_SQL_PAR2_password": {
+			"value": ""
+		},
 		"LS_SqlServer1_password": {
 			"value": ""
 		},
@@ -18,9 +21,6 @@
 			"value": ""
 		},
 		"SL_REST_API_accountKey": {
-			"value": ""
-		},
-		"LS_SQL_PAR2_password": {
 			"value": ""
 		},
 		"SL_SQL_PAR2_accountKey": {
@@ -34,6 +34,15 @@
 		},
 		"LS_REST_PAR_properties_typeProperties_url": {
 			"value": "https://retoolapi.dev/pCtpVZ/data"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_server": {
+			"value": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_database": {
+			"value": "salesecom"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_userName": {
+			"value": "sa"
 		},
 		"LS_SqlServer1_properties_typeProperties_server": {
 			"value": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
@@ -50,20 +59,11 @@
 		"SL_REST_API_properties_typeProperties_url": {
 			"value": "https://adlssidevecom08.dfs.core.windows.net/"
 		},
-		"ENVT_MANUALPAYMENT_properties_typeProperties_scope": {
-			"value": "/subscriptions/57c4c5df-a5b0-442e-9e96-3dca662c74a7/resourceGroups/rg_devecom/providers/Microsoft.Storage/storageAccounts/adlsrawdevecom08"
-		},
-		"LS_SQL_PAR2_properties_typeProperties_server": {
-			"value": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
-		},
-		"LS_SQL_PAR2_properties_typeProperties_database": {
-			"value": "salesecom"
-		},
-		"LS_SQL_PAR2_properties_typeProperties_userName": {
-			"value": "sa"
-		},
 		"SL_SQL_PAR2_properties_typeProperties_url": {
 			"value": "https://adlssidevecom08.dfs.core.windows.net/"
+		},
+		"ENVT_MANUALPAYMENT_properties_typeProperties_scope": {
+			"value": "/subscriptions/57c4c5df-a5b0-442e-9e96-3dca662c74a7/resourceGroups/rg_devecom/providers/Microsoft.Storage/storageAccounts/adlsrawdevecom08"
 		},
 		"containerUri": {
 			"value": ""

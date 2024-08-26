@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_MANUALPAYMENT_PAR'"
 		},
+		"LS_SQL_PAR2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_PAR2'"
+		},
 		"LS_SqlServer1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SqlServer1'"
@@ -26,10 +30,6 @@
 		"SL_REST_API_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'SL_REST_API'"
-		},
-		"LS_SQL_PAR2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_SQL_PAR2'"
 		},
 		"SL_SQL_PAR2_accountKey": {
 			"type": "secureString",
@@ -46,6 +46,18 @@
 		"LS_REST_PAR_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://retoolapi.dev/pCtpVZ/data"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "salesecom"
+		},
+		"LS_SQL_PAR2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
 		},
 		"LS_SqlServer1_properties_typeProperties_server": {
 			"type": "string",
@@ -67,25 +79,13 @@
 			"type": "string",
 			"defaultValue": "https://adlssidevecom08.dfs.core.windows.net/"
 		},
-		"ENVT_MANUALPAYMENT_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/57c4c5df-a5b0-442e-9e96-3dca662c74a7/resourceGroups/rg_devecom/providers/Microsoft.Storage/storageAccounts/adlsrawdevecom08"
-		},
-		"LS_SQL_PAR2_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "LAPTOP-SHPI52Q8\\SQLEXPRESS"
-		},
-		"LS_SQL_PAR2_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "salesecom"
-		},
-		"LS_SQL_PAR2_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "sa"
-		},
 		"SL_SQL_PAR2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlssidevecom08.dfs.core.windows.net/"
+		},
+		"ENVT_MANUALPAYMENT_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/57c4c5df-a5b0-442e-9e96-3dca662c74a7/resourceGroups/rg_devecom/providers/Microsoft.Storage/storageAccounts/adlsrawdevecom08"
 		},
 		"containerUri": {
 			"type": "string",
@@ -129,11 +129,11 @@
 					"SL_SQL_PAR2_accountKey": {
 						"value": "[parameters('SL_SQL_PAR2_accountKey')]"
 					},
-					"LS_SqlServer1_password": {
-						"value": "[parameters('LS_SqlServer1_password')]"
-					},
 					"LS_SQL_PAR2_password": {
 						"value": "[parameters('LS_SQL_PAR2_password')]"
+					},
+					"LS_SqlServer1_password": {
+						"value": "[parameters('LS_SqlServer1_password')]"
 					},
 					"ADLS_SQL_PAR_properties_typeProperties_url": {
 						"value": "[parameters('ADLS_SQL_PAR_properties_typeProperties_url')]"
@@ -153,15 +153,6 @@
 					"LS_REST_PAR_properties_typeProperties_url": {
 						"value": "[parameters('LS_REST_PAR_properties_typeProperties_url')]"
 					},
-					"LS_SqlServer1_properties_typeProperties_server": {
-						"value": "[parameters('LS_SqlServer1_properties_typeProperties_server')]"
-					},
-					"LS_SqlServer1_properties_typeProperties_database": {
-						"value": "[parameters('LS_SqlServer1_properties_typeProperties_database')]"
-					},
-					"LS_SqlServer1_properties_typeProperties_userName": {
-						"value": "[parameters('LS_SqlServer1_properties_typeProperties_userName')]"
-					},
 					"LS_SQL_PAR2_properties_typeProperties_server": {
 						"value": "[parameters('LS_SQL_PAR2_properties_typeProperties_server')]"
 					},
@@ -170,6 +161,15 @@
 					},
 					"LS_SQL_PAR2_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQL_PAR2_properties_typeProperties_userName')]"
+					},
+					"LS_SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('LS_SqlServer1_properties_typeProperties_server')]"
+					},
+					"LS_SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('LS_SqlServer1_properties_typeProperties_database')]"
+					},
+					"LS_SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SqlServer1_properties_typeProperties_userName')]"
 					}
 				}
 			},
