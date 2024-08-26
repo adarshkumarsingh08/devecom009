@@ -406,7 +406,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "orders",
+						"folderPath": "orderitem",
 						"fileSystem": "output"
 					},
 					"compressionCodec": "snappy"
@@ -480,7 +480,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "orders"
+					"table": "order_items"
 				}
 			},
 			"dependsOn": [
